@@ -36,7 +36,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 @Composable
 fun SeriesApp() {
-    val urlBase = "http://10.0.2.2:8000/" // o tu IP si usarás un dispositivo externo
+    val urlBase = "http://192.168.114.49:8000/" // o tu IP si usarás un dispositivo externo
     val retrofit = Retrofit.Builder().baseUrl(urlBase)
         .addConverterFactory(GsonConverterFactory.create()).build()
     val servicio = retrofit.create(SerieApiService::class.java)
@@ -50,6 +50,7 @@ fun SeriesApp() {
         content =   { paddingValues -> Contenido(paddingValues, navController, servicio) }
     )
 }
+
 
 @Composable
 fun BotonFAB(navController: NavHostController, servicio: SerieApiService) {
